@@ -1,26 +1,48 @@
-⚙️ SensorMesh
-Industrial IoT / Cooperative Intelligent Systems
-A Synapse 1.0 Hackathon Submission by Team Recurrex
-Heavy machinery is monitored by multiple sensors measuring temperature, pressure, vibration, and speed. In harsh environments, individual sensors frequently drift, miscalibrate, or fail. Currently, monolithic anomaly detectors trigger false plant shutdowns when a single sensor fails, even if the machine itself is perfectly healthy.  
-SensorMesh solves this by tracking multivariate sensor streams and cross-validating readings using physical correlation rules to establish peer consensus. By distinguishing local sensor faults from true systemic machine degradation, we isolate faulty sensors without causing unnecessary emergency shutdowns.  
-🚀 Core Features
-Multivariate Telemetry Tracking: Processes and monitors 14+ channels of live industrial sensor data.  
-Physical Correlation Consensus: Uses a graph-based voting protocol where sensors cross-validate each other based on known physical invariants.  
-Fault Classification: Dynamically categorizes system states into NORMAL, LOCAL_SENSOR_FAULT, or SYSTEMIC_FAILURE.  
-Real-Time Operations Dashboard: Visualizes live telemetry streams, the consensus matrix, and a GREEN / YELLOW / RED plant status indicator.  
-🛠️ Tech Stack
-Machine Learning & Data: Python, PyTorch, Scikit-Learn, Pandas (using the NASA C-MAPSS Turbofan Degradation dataset)  
-Backend & Streaming: FastAPI, WebSockets, Python Async
-Frontend & UI: React / Next.js, WebSockets, Charting Libraries (Recharts/Chart.js)
-Algorithm: NetworkX (Graph-based physical invariant logic)
-⚡ Judge Stress-Test Protocol
-Our system is engineered to pass the following live stress test during the demo:  
-Judge Action: Inject a sudden drift/spike into Sensor 2 and Sensor 7.  
-Expected Pass Condition: The consensus matrix detects the anomaly but identifies it as a LOCAL_FAULT only. The overall plant status remains GREEN (running).  
-Fail Condition Avoided: False plant shutdown.  
-👥 Team Recurrex
-Aritraa — Machine Learning & Data Engineering (C-MAPSS dataset prep, feature extraction, and anomaly detection model)
-Prithwish — Frontend & UI Dashboard (14-channel real-time visualizer, consensus matrix grid, and status indicators)  
-Arghya — Consensus Logic & Algorithm Design (Physical correlation mapping and voting protocol logic)
-Debarghya — Backend API & Stream Infrastructure (FastAPI server, WebSocket data routing, and stress-test injection engine)
-Built for the SYNAPSE 1.0 Hackathon (IEEE SMC KGEC × IEEE Kolkata Section)
+# 🏭 SensorMesh
+
+**Industrial IoT / Cooperative Intelligent Systems**
+
+SensorMesh is a cooperative Industrial IoT platform designed to track multivariate sensor streams from heavy machinery. By utilizing physical correlation rules, the system cross-validates sensor readings to distinguish between a true systemic machine failure and a localized, false sensor fault.
+
+This project was built for **SYNAPSE 1.0 (Synergy of Intelligent Systems)**, a National Flagship Hackathon. 
+
+---
+
+## ⚠️ The Problem
+
+Heavy machinery operates in harsh environments, causing individual sensors (temperature, pressure, vibration) to drift, miscalibrate, or fail outright. Current monolithic anomaly detectors treat a single sensor failure as a systemic machine failure, triggering expensive and unnecessary false plant shutdowns.
+
+## 🛠️ Our Solution
+
+SensorMesh introduces a **Consensus Matrix** and a **Voting Protocol**. Instead of relying on single-point thresholds, our system cross-validates 14+ channels of telemetry. If a single sensor spikes but its physically correlated peers remain stable, the system isolates the faulty sensor and keeps the plant running.
+
+### Key Features
+*   **📡 14-Channel Telemetry Processing:** Ingests and processes multivariate streams in real-time.
+*   **🤝 Cooperative Consensus Voting:** Cross-validates sensors using defined physical invariants.
+*   **🚦 Smart Status Indicator:** Classifies state dynamically as `NORMAL`, `LOCAL_SENSOR_FAULT`, or `SYSTEMIC_FAILURE`.
+*   **⚡ Live Stress Testing:** Handles injected anomalies mid-stream without crashing or stopping production.
+
+---
+
+## 🏗️ System Architecture
+
+*   **Dataset:** NASA C-MAPSS Turbofan Degradation
+*   **Perception Layer:** Statistical Feature Extraction & Z-Score Normalization
+*   **Policy Layer:** Hybrid Rule-Based Invariants + Time-Series Classification
+*   **Serving:** FastAPI backend routing via WebSockets to the UI
+*   **Frontend:** Real-time multi-chart visualizer 
+
+---
+
+## 👨‍💻 Team Recurrex
+
+*   **Aritraa Chakraborty** — Machine Learning & Data Engineering
+*   **Prithwish** — Frontend & UI Dashboard
+*   **Arghya** — Consensus Logic & Algorithm Design
+*   **Debarghya** — Backend API & Stream Infrastructure
+
+---
+
+## 🚀 Setup & Installation (Coming Soon)
+
+*(Instructions for local deployment, API endpoints, and running the live stream simulator will be added during the Pre-Finale build phase in October).*
