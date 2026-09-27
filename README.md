@@ -37,9 +37,9 @@ SensorMesh introduces a **Consensus Matrix** and a **Voting Protocol**. Instead 
 ## 👨‍💻 Team Recurrex
 
 *   **Aritraa Chakraborty** — Machine Learning & Data Engineering
-*   **Debarghya** — Backend API & Stream Infrastructure
-*   **Prithwish** — Consensus Logic & Algorithm Design
-*   **Arghya** — Frontend & UI Dashboard
+*   **Debarghya Bose** — Backend API & Stream Infrastructure
+*   **Prithwish Chakraborty** — Consensus Logic & Algorithm Design
+*   **Arghyadeep Roy** — Frontend & UI Dashboard
 
 
 ---
